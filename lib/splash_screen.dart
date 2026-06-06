@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _startTimer() {
     Timer(const Duration(seconds: 3), () {
-    
+    //using the setState method to update the display after the 3 seconds is up.
       setState(() {
         
         Navigator.pushReplacement(

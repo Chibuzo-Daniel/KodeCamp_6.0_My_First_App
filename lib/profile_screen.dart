@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 // StatelessWidget used as requested for the static Profile view layout structure
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
-
   @override
   //this is the parent widget housing all the visible component of the profile screen.
   Widget build(BuildContext context) {
@@ -107,8 +106,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
 
-              // Recipe details 
-
+            // Recipe details 
               _buildRecipeCard(
                 'Brownie',
                 'Chef Daniel',

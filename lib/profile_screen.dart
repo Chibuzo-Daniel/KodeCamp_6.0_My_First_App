@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-// StatelessWidget used as requested for the static Profile view layout structure
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  final String userName;
+  final String userEmail;
+  final bool isFromLogin;
+  const ProfileScreen({super.key, required this.userName, required this.userEmail, required this.isFromLogin});
+
   @override
   //this is the parent widget housing all the visible component of the profile screen.
   Widget build(BuildContext context) {
@@ -36,7 +39,8 @@ class ProfileScreen extends StatelessWidget {
                   const CircleAvatar(
                     radius: 50,
                     backgroundColor: Colors.grey,
-                    backgroundImage: AssetImage('assets/images/profile.jpeg'),
+                    //profile image from the internet
+                    backgroundImage: NetworkImage('https://scontent-los4-1.xx.fbcdn.net/v/t39.30808-6/649106623_1895562807758553_9061148489283145259_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s1536x2048&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeF1RMnKLsCtSnlPHhkPNeJgz6ZbuXbmDZfPplu5duYNl_xYst04NgH8yK6GRgDyDtAPer3f0wRNIuInKrGIKy_M&_nc_ohc=GOQFSNTwAT8Q7kNvwHpqr0R&_nc_oc=AdoT3clpok_GKuo8-k2BafVOqnbykgD2-0kAiMmUWZYpckEUfCFy7-dCmeib7R-3fe0&_nc_zt=23&_nc_ht=scontent-los4-1.xx&_nc_gid=H2378NbuVFHtW-SNsPltUA&_nc_ss=7b2a8&oh=00_Af-2i1L480MU_z0qqDsd7PYbUazn9Tf_DCdk7aZYrwU7Mw&oe=6A3DF285'),
                   ),
                   const Spacer(),
                   _buildStatColumn('Recipe', '4'),
@@ -48,14 +52,14 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16),
-              // User Information
-              const Text(
-                'Chibuzo Daniel Onyedikachukwu',
+              //check if user is coming from the login or registration page
+               Text(
+                isFromLogin ?  "Hello, $userName!" : "Welcome, $userName!",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 4),
-              const Text(
-                'Chef',
+               Text(
+                userEmail,
                 style: TextStyle(color: Colors.grey, fontSize: 14),
               ),
               const SizedBox(height: 12),
@@ -109,7 +113,8 @@ class ProfileScreen extends StatelessWidget {
             // Recipe details 
               _buildRecipeCard(
                 'Brownie',
-                'Chef Daniel',
+                //fetch username from registration page 
+                'Chef $userName',
                 '4.0',
                 '20 min',
                  'assets/images/image-brownie-mobile.jpg',
@@ -117,7 +122,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 16),
               _buildRecipeCard(
                 'Strawberry Cake',
-                'Chef Daniel',
+                'Chef $userName',
                 '4.0',
                 '20 min',
                 'assets/images/image-cake-mobile.jpg',
@@ -125,7 +130,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 16),
               _buildRecipeCard(
                 'Creme Brulee',
-                'Chef Daniel',
+                'Chef $userName',
                 '4.0',
                 '20 min',
                 'assets/images/image-creme-brulee-mobile.jpg',
@@ -133,7 +138,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 16),
               _buildRecipeCard(
                 'Macaron',
-                'Chef Daniel',
+                'Chef $userName',
                 '4.0',
                 '20 min',
                 'assets/images/image-macaron-mobile.jpg',
@@ -141,7 +146,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 16),
               _buildRecipeCard(
                 'Panna Cotta',
-                'Chef Daniel',
+                'Chef $userName',
                 '4.0',
                 '20 min',
                 'assets/images/image-panna-cotta-mobile.jpg',

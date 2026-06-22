@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'profile_screen.dart';
+import 'login_screen.dart';
 
 // StatefulWidget to do the 3 seconds delay before navigating to the profile
 class SplashScreen extends StatefulWidget {
@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
           context,
           MaterialPageRoute(
             //calls the profile screen class in profile_screen.dart
-            builder: (context) => const ProfileScreen()
+            builder: (context) =>  LoginScreen()
           ),
         );
       });
@@ -45,8 +45,9 @@ class _SplashScreenState extends State<SplashScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Spacer(flex: 2),
-              Image.asset(
-                'assets/images/chef.jpg',
+              //i changed the image in the splash screen to a netwok image from pintrest where i downloaded it from
+              Image.network(
+                'https://i.pinimg.com/webp85/736x/6b/65/41/6b6541cf791ecf8680de60f51e44e95f.webp',
                 width: 150,
                 height: 150,
                 fit: BoxFit.contain,
@@ -54,11 +55,11 @@ class _SplashScreenState extends State<SplashScreen> {
              const SizedBox(height: 16),
               // App Title
               Text(
-                'Product-List-Cart',
+                'Product-List-Cart (PLC)',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Color(0xFF009BBD),
                 ),
               ),
               const Spacer(flex: 3),
@@ -66,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 45.0),
                 child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFFA5A5A)),
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF009BBD)),
                 ),
               ),
             ],

@@ -54,7 +54,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 16),
               //check if user is coming from the login or registration page
                Text(
-                isFromLogin ?  "Hello, $userName!" : "Welcome, $userName!",
+                isFromLogin ?  "Hello, $userName!" : "Welcome, $userName",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 4),
@@ -64,7 +64,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               const Text(
-                'Active Chef\nI cook to live and live to cook😂😋🍲',
+                'Active Chef\nI cook to live and live to cook🍲👌',
                 style: TextStyle(fontSize: 14, color: Colors.black87),
               ),
               const Text(
